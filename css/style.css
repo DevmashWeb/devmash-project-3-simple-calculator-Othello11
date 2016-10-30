@@ -1,8 +1,8 @@
 #calculator input {
-  background: ;
+  
   border-radius: 19px;
   font-family: Arial;
-  color: #ffffff;
+  color: #181818;
   font-size: 20px;
   padding: 17px 34px 23px 35px;
   text-decoration: none;
@@ -15,6 +15,7 @@
 }
 #calculator
 {
+
    margin-left: auto;
     margin-right: auto;
    width: 400px;

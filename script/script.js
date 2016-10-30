@@ -45,6 +45,25 @@ function show(){
     }
     document.getElementById('display_menu').value = displaystring;
 }
+function isOperandUnary(){
+    if(operand == 'x2' ||operand =='!')
+        return true;
+    else 
+        return false;
+}
+
+function fact(n){
+    if (n<0){
+        return "NaN";
+    }
+    var fact = 1;
+    for(var i=n;i>0;i--){
+        fact = fact*i;
+    }
+    return fact;
+}
+
+
 
 //eventhandler
 function getvalue(event,v){
@@ -69,7 +88,7 @@ else{   //if clicked button is operand
         opSet = true;
         show();
     }
-    else if(opSet&&bSet){
+    else if(opSet&&bSet||isOperandUnary()){
         if(operand == '+'){
             r = a + b;
         }
@@ -82,6 +101,18 @@ else{   //if clicked button is operand
         if(operand == '/'){
             r = a/b;
         }
+        if(operand =='%'){
+            r=a*(b/100)
+        }
+        if(operand =='x2'){
+            r=a*a
+        }
+        if(operand =="!"){
+            r=fact(a);
+        }
+            
+            
+            
         showResult(r);
     }
 }
@@ -105,6 +136,10 @@ else{   //if clicked button is operand
     document.getElementById('key*').addEventListener('click', getvalue);
     document.getElementById('key/').addEventListener('click', getvalue);
     document.getElementById('key=').addEventListener('click', getvalue);
+    document.getElementById('key%').addEventListener('click', getvalue);
+    document.getElementById('keyx2').addEventListener('click', getvalue);
+    document.getElementById('key!').addEventListener('click', getvalue);
+   
     document.getElementById('keyclear').addEventListener('click', clear);
 
     function clear(){location.reload()};
